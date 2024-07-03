@@ -1,0 +1,89 @@
+/* styles.css */
+
+body {
+    background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+    color: #e0e1dd;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.tower {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background: #ff6f61;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(255, 105, 97, 0.8);
+}
+
+#dropBlockBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6f61;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dropBlockBtn:hover {
+    background-color: #e55d50;
+}
+
+.info {
+    margin-top: 20px;
+}
+
+/* Стили для блоков */
+.block {
+    position: absolute;
+    bottom: 0;
+    background: #00bcd4;
+    transition: width 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.cut-block {
+    background: #ff5722;
+    transition: width 0.3s ease, transform 0.3s ease;
+    z-index: 0;
+}
+
+/* Анимация для блоков */
+.block.drop {
+    animation: dropBlock 0.5s ease;
+}
+
+.cut-block {
+    animation: cutBlock 0.5s ease forwards;
+}
+
+@keyframes dropBlock {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes cutBlock {
+    from {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    to {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+}
